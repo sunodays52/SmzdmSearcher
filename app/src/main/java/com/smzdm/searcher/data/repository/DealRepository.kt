@@ -26,7 +26,7 @@ class DealRepository(
 
     // ─── Deals ───
 
-    suspend fun getDealsByKeyword(keyword: String): Flow<List<DealEntity>> =
+    fun getDealsByKeyword(keyword: String): Flow<List<DealEntity>> =
         dealDao.getDealsByKeyword(keyword)
 
     fun getAllDeals(): Flow<List<DealEntity>> = dealDao.getAllDeals()
