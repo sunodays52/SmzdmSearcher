@@ -41,7 +41,7 @@ class DealRepository(
     suspend fun saveNewDeals(apiDeals: List<SmzdmDeal>, keyword: String): List<DealEntity> {
         val newDeals = apiDeals.mapNotNull { deal ->
             // Check if already exists
-            if (dealDao.countBySmzdmId(deal.id) == 0L) {
+            if (dealDao.countBySmzdmId(deal.id) == 0) {
                 DealEntity(
                     smzdmId = deal.id,
                     productKeyword = keyword,
