@@ -39,7 +39,7 @@ class SmzdmApiService {
         val body = response.body?.string() ?: return@withContext emptyList()
 
         val listType = object : TypeToken<List<SmzdmDeal>>() {}.type
-        val deals: List<SmzdmDeal> = gson.fromJson(body, listType)
+        val deals: List<SmzdmDeal> = gson.fromJson(body, listType) ?: emptyList()
 
         // Filter results that contain the keyword in the title (case-insensitive)
         val lowerKeyword = keyword.lowercase()
