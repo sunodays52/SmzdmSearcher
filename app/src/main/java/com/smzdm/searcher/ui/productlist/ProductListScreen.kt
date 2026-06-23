@@ -75,7 +75,6 @@ fun ProductListScreen(
 ) {
     val products by viewModel.products.collectAsStateWithLifecycle()
     val showDialog by viewModel.showDialog.collectAsStateWithLifecycle()
-    val scope = rememberCoroutineScope()
 
     Box(modifier = modifier.fillMaxSize().padding(paddingValues)) {
         if (products.isEmpty()) {
