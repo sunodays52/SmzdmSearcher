@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">什么值得买搜索</string>
+    <string name="channel_deals_name">好价通知</string>
+    <string name="channel_deals_desc">发现新的好价时推送通知</string>
+    <string name="notif_new_deal_title">发现好价！</string>
+    <string name="tab_products">监控列表</string>
+    <string name="tab_deals">好价历史</string>
+    <string name="tab_settings">设置</string>
+    <string name="add_product">添加商品</string>
+    <string name="product_hint">输入要监控的商品关键词</string>
+    <string name="empty_products">还没有添加监控商品，点击 + 添加</string>
+    <string name="empty_deals">还没有好价记录</string>
+    <string name="delete">删除</string>
+    <string name="enable">启用</string>
+    <string name="disable">暂停</string>
+    <string name="notification_permission">通知权限</string>
+    <string name="notification_permission_desc">需要通知权限才能推送好价提醒</string>
+    <string name="listener_permission">通知监听权限</string>
+    <string name="listener_permission_desc">需要通知监听权限才能捕获 smzdm 通知</string>
+    <string name="battery_permission">电池优化</string>
+    <string name="battery_permission_desc">关闭电池优化以确保定时任务准时执行</string>
+    <string name="grant">去授权</string>
+    <string name="settings_title">设置</string>
+    <string name="search_interval">搜索间隔</string>
+    <string name="search_interval_desc">每 %d 分钟自动搜索一次</string>
+</resources>
