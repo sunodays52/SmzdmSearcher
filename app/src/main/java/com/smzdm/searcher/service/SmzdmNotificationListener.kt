@@ -40,7 +40,7 @@ class SmzdmNotificationListener : NotificationListenerService() {
             try {
                 val repo = repository ?: return@launch
                 // Generate a stable ID from hash to avoid duplicates
-                val id = dealInfo.title.hashCode().toLong() and 0x7FFFFFFF
+                val id = dealInfo.title.hashCode().toLong() and 0x7FFFFFFFL
 
                 val dealEntity = DealEntity(
                     smzdmId = id,
