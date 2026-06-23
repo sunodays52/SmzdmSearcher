@@ -4,9 +4,6 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
 import com.smzdm.searcher.data.local.AppDatabase
 import com.smzdm.searcher.data.remote.SmzdmApiService
 import com.smzdm.searcher.data.repository.DealRepository
@@ -33,7 +30,7 @@ class SmzdmApp : Application() {
         container = AppContainer(database, apiService, repository)
 
         // Schedule periodic deal checking
-        scheduleDealCheck()
+        DealCheckWorker.schedule(this)
     }
 
     private fun createNotificationChannel() {
@@ -50,21 +47,8 @@ class SmzdmApp : Application() {
         }
     }
 
-    private fun scheduleDealCheck() {
-        val workRequest = PeriodicWorkRequestBuilder<DealCheckWorker>(
-            15, TimeUnit.MINUTES
-        ).build()
-
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            DEAL_CHECK_WORK_NAME,
-            ExistingPeriodicWorkPolicy.KEEP,
-            workRequest
-        )
-    }
-
     companion object {
         const val CHANNEL_DEALS = "smzdm_deals"
-        const val DEAL_CHECK_WORK_NAME = "deal_check_work"
         lateinit var instance: SmzdmApp
             private set
     }
